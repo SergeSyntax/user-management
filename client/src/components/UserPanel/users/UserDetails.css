@@ -1,0 +1,15 @@
+.sub-page h3 {
+  font-size: 2rem;
+}
+
+@media screen and (max-width: 1000px) {
+  .sub-page h3 {
+    font-size: 1.7rem;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .sub-page h3 {
+    font-size: 2rem;
+  }
+}

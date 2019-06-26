@@ -1,0 +1,19 @@
+.success {
+  color: green;
+}
+
+.fail {
+  color: red;
+}
+
+
+.task-data {
+  display: flex;
+  flex-direction: column;
+}
+
+.task-status {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}

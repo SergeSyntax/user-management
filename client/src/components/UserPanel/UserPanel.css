@@ -1,0 +1,99 @@
+.full-screen {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  background: rgba(255, 255, 255, 0.5);
+  overflow: hidden;
+}
+
+.list {
+  list-style: none;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-gap: 25px;
+  overflow-y: auto;
+  overflow-x: visible;
+  padding: 1rem;
+  margin-right: 1rem;
+}
+
+.list::-webkit-scrollbar-track {
+  background-color: transparent;
+  border-radius: 10px;
+}
+
+.list::-webkit-scrollbar {
+  background-color: transparent;
+  width: 8px;
+}
+
+.list::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background-image: linear-gradient(
+    rgba(34, 150, 243, 0.7),
+    rgba(34, 150, 243, 0.4)
+  );
+}
+
+.page {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+}
+
+.sub-page {
+  height: 50%;
+  width: 100%;
+  padding: 1rem;
+}
+
+.sub-page > ul {
+  height: 80%;
+}
+
+.form {
+  padding: 1rem;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-gap: 25px;
+  margin-top: 2rem;
+  white-space: nowrap;
+}
+
+.input {
+  width: 100%;
+}
+
+.user-form-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  white-space: nowrap;
+}
+
+
+
+@media screen and (max-width: 900px) {
+  .full-screen {
+    width: 100vw;
+    height: 200vh;
+    flex-wrap: wrap;
+  }
+
+  .page {
+    width: 100vw;
+    height: 100vh;
+  }
+}
+
+.property {
+  font-weight: 400;
+}

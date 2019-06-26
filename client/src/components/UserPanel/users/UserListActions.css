@@ -1,0 +1,9 @@
+.header .search-field {
+  width: 80%;
+}
+
+@media screen and (max-width:1400px) {
+  .header .search-field {
+    width: 70%;
+  }
+}

@@ -1,0 +1,43 @@
+.modal-background {
+  position: fixed;
+  height: 100vh;
+  width: 100vw;
+  background: rgba(0, 0, 0, 0.7);
+  top: 0;
+  z-index: +1;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  padding-top: 10vh;
+}
+
+.modal {
+  background: white;
+  width: 55vw;
+  height: 30vh;
+  border-radius: 15px;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.modal-message {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.2rem;
+}
+
+.modal-message > h1 {
+  font-size: 2.5rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  word-spacing: 10px;
+  margin-bottom: 1rem;
+  color: red;
+  font-weight: 300;
+  text-shadow: -2px -1px 4px rgba(15, 14, 14, 0.61);
+
+}

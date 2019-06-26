@@ -1,0 +1,4 @@
+.post-data {
+  display: flex;
+  flex-direction: column;
+}

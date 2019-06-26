@@ -1,0 +1,32 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-family: 'Roboto', 'Arial', sans-serif;
+  font-size: 18px;
+  text-rendering: optimizeLegibility;
+  line-height: 1.5;
+  font-weight: 300;
+}
+
+.particles {
+  background-color: #96a8ac;
+  position: fixed;
+  z-index: -1;
+}
+
+a {
+  color: black;
+  text-decoration: none;
+}
+
+h3 {
+  font-weight: 300;
+  color: azure;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  word-spacing: 10px;
+}
