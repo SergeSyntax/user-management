@@ -49,21 +49,31 @@ const UserData = ({
   };
 
   return (
-    
     <form
       style={{
         background:
-          match &&
-          parseInt(match.params.id) === userId ?
-          'rgba(59, 177, 255, 0.2)' : 'none',
-        border: `solid 1px ${uncompletedTasks ? 'red' : 'green'}`
+          match && parseInt(match.params.id) === userId
+            ? 'rgba(59, 177, 255, 0.2)'
+            : 'none',
+        border: `solid 3px ${
+          uncompletedTasks ? 'rgba(255, 0, 0, 0.3)' : 'rgba(0, 255, 0, 0.3)'
+        }`
       }}
       className="form"
       onSubmit={handleSubmit(submit)}
       autoComplete="off"
     >
       <Link to={`/users/${userId}`}>
-        <div className="field user-id" style={{textAlign:'center', textDecoration:'none', color:'#2296F3'}}><h3>ID: {userId}</h3></div>
+        <div
+          className="field user-id"
+          style={{
+            textAlign: 'center',
+            textDecoration: 'none',
+            color: '#2296F3'
+          }}
+        >
+          <h3>ID: {userId}</h3>
+        </div>
       </Link>
       <Field
         className="input"
@@ -85,7 +95,7 @@ const UserData = ({
           component={renderTextField}
           label="City"
         />
-        
+
         <div>
           <h3>Phones:</h3>
           {phones.map(({ number, phoneType }) => {
@@ -101,25 +111,24 @@ const UserData = ({
           })}
         </div>
 
-          <div className="add-phone-field">
+        <div className="add-phone-field">
           <h3>Add Phone:</h3>
-            <Field
-              className="phone-type"
-              type="text"
-              name="phoneType"
-              component={renderTextField}
-              label="Phone Type"
-            />
-            <Field
-              className="phone-number"
-              type="tel"
-              name="number"
-              component={renderTextField}
-              label="Number"
-            />
-          </div>
-
+          <Field
+            className="phone-type"
+            type="text"
+            name="phoneType"
+            component={renderTextField}
+            label="Phone Type"
+          />
+          <Field
+            className="phone-number"
+            type="tel"
+            name="number"
+            component={renderTextField}
+            label="Number"
+          />
         </div>
+      </div>
 
       <div className="user-form-actions">
         <Button
