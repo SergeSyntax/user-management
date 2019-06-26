@@ -13,7 +13,7 @@ const UserList = ({ users, fetchUsers, tasks, match }) => {
   }, [tasks, fetchUsers]);
 
   const renderUserList = users => {
-    return users
+    return Object.values(users)
       .filter(
         user =>
           user.name
@@ -62,7 +62,7 @@ UserList.propTypes = {
 };
 
 const mapStateToProps = state => ({
-  users: Object.values(state.users),
+  users: state.users,
   tasks: state.tasks
 });
 

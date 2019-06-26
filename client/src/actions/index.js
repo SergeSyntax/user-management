@@ -53,6 +53,7 @@ export const createUser = formValues => async dispatch => {
 
 export const editUser = (id, formValues) => async dispatch => {
   const { city, email, name, number, phoneType } = formValues;
+
   if (number && phoneType)
     await server.post(`/users/${id}/phones`, {
       number,
@@ -64,6 +65,7 @@ export const editUser = (id, formValues) => async dispatch => {
     city
   });
   await dispatch({ type: EDIT_USER, payload });
+  await dispatch(fetchUser(id));
 };
 
 export const deleteUser = id => async dispatch => {
@@ -111,14 +113,16 @@ export const fetchPosts = userId => async dispatch => {
   }
 };
 
-export const completeTask = ({title, id}) => async dispatch => {
-  const { data: payload } = await server.put(`/tasks/${id}`, {title, completed: true});
+export const completeTask = ({ title, id }) => async dispatch => {
+  const { data: payload } = await server.put(`/tasks/${id}`, {
+    title,
+    completed: true
+  });
   dispatch({
     type: COMPLETE_TASK,
     payload
-  })
+  });
 };
-
 
 export const createPost = formValues => async dispatch => {
   const { data } = await server.post('/posts/', formValues);

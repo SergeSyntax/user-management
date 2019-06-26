@@ -32,20 +32,18 @@ const UserData = ({
   phones,
   userId,
   editUser,
-  change,
   match,
-  pristine,
   submitting,
-  initialize,
-  uncompletedTasks
+  uncompletedTasks,
+  change
 }) => {
   const [display, setDisplay] = useState(false);
 
   const submit = formValues => {
     editUser(userId, formValues);
+    setDisplay(false);
     change('phoneType', '');
     change('number', '');
-    initialize();
   };
 
   return (
@@ -101,7 +99,7 @@ const UserData = ({
           {phones.map(({ number, phoneType }) => {
             return (
               <div
-                className="field"
+                className="phone-list"
                 key={`${number}-${phoneType}-${Date.now()}`}
               >
                 <span className="property">Phone Number:</span> {number} <br />
@@ -141,7 +139,7 @@ const UserData = ({
 
         <div>
           <Button
-            disabled={pristine || submitting}
+            disabled={submitting}
             className="btn"
             variant="contained"
             color="primary"
