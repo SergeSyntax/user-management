@@ -79,12 +79,24 @@
   white-space: nowrap;
 }
 
+.property {
+  font-weight: 400;
+}
 
+.responsive-bar {
+  display: none;
+  position: absolute;
+  grid-template-columns: 1fr;
+  grid-gap: 7px;
+  right: 1rem;
+  bottom: 1rem;
+  opacity: 0.6;
+}
 
 @media screen and (max-width: 900px) {
   .full-screen {
     width: 100vw;
-    height: 200vh;
+    overflow-y: auto;
     flex-wrap: wrap;
   }
 
@@ -92,8 +104,16 @@
     width: 100vw;
     height: 100vh;
   }
-}
 
-.property {
-  font-weight: 400;
+  .header {
+    flex-direction: column;
+  }
+
+  .user-form-actions {
+    flex-direction: column;
+  }
+
+  .responsive-bar {
+    display: grid;
+  }
 }

@@ -1,5 +1,4 @@
 import React from 'react';
-// import PropTypes from 'prop-types';
 import UserList from './users/UserList';
 import UserDetails from './users/UserDetails';
 import particlesParams from '../../particlesParams';
@@ -8,6 +7,7 @@ import UserCreate from './users/UserCreate';
 import { Route } from 'react-router-dom';
 import Page from '../../hoc/Page';
 import './UserPanel.css';
+import { Button } from '@material-ui/core';
 
 const UserPanel = () => {
   return (
@@ -19,12 +19,25 @@ const UserPanel = () => {
         params={particlesParams}
       />
 
-      <Page className="page">
+      <div className="responsive-bar">
+        <a href="#1">
+          <Button variant="contained" color="primary">
+            <i className="material-icons">keyboard_arrow_up</i>
+          </Button>
+        </a>
+        <a href="#2">
+          <Button variant="contained" color="primary">
+            <i className="material-icons">keyboard_arrow_down</i>
+          </Button>
+        </a>
+      </div>
+
+      <Page id="1" className="page">
         <Route path="/users/:id" component={UserList} />
         <Route path="/" component={UserList} />
       </Page>
 
-      <Page className="page">
+      <Page id="2" className="page">
         <Route exact path="/users/new" component={UserCreate} />
         <Route path="/users/:id" component={UserDetails} />
       </Page>

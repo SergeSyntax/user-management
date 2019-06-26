@@ -11,7 +11,7 @@ const SubPageHeader = ({ title, link }) => {
       {link && (
         <Link to={link}>
           <Button variant="outlined" color="primary">
-            Add
+            <i className="material-icons">add</i>
           </Button>
         </Link>
       )}

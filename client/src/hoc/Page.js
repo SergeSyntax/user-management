@@ -1,9 +1,9 @@
 import React from 'react';
 import { Switch } from 'react-router-dom';
 
-const Page = ({ children, className }) => {
+const Page = ({ id, children, className }) => {
   return (
-    <div className={className}>
+    <div id={id} className={className}>
       <Switch>{children}</Switch>
     </div>
   );
