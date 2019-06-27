@@ -4,7 +4,7 @@ import PostList from '../posts/PostList';
 import { Route } from 'react-router-dom';
 import TaskCreate from '../tasks/TaskCreate';
 import PostCreate from '../posts/PostCreate';
-import Page from '../../../hoc/Page';
+import Page from '../../layout/Page';
 import './UserDetails.css'
 
 const UserDetails = () => {

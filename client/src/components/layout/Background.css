@@ -1,0 +1,5 @@
+.particles {
+  background-color: #96a8ac;
+  position: fixed;
+  z-index: -1;
+}

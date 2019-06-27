@@ -1,4 +1,8 @@
-export default {
+import React from 'react';
+import Particles from 'react-particles-js';
+import './Background.css';
+
+const particlesParams = {
   particles: {
     number: {
       value: 80,
@@ -106,5 +110,21 @@ export default {
       }
     }
   },
-  "retina_detect": true
-}
+  retina_detect: true
+};
+
+const Background = ({ children, className }) => {
+  return (
+    <div className={className}>
+      <Particles
+        className="particles"
+        width={'100vw'}
+        height={'100vh'}
+        params={particlesParams}
+      />
+      {children}
+    </div>
+  );
+};
+
+export default Background;
