@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 const _ = require('lodash');
-const Joi = require('joi');
+const Joi = require('@hapi/joi');
 
 const Post = mongoose.model(
   'Post',

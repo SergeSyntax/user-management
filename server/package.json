@@ -1,24 +1,21 @@
 {
-  "name": "user-management",
-  "version": "0.0.0",
-  "private": true,
+  "name": "user-management-server",
+  "version": "2.0.0",
+  "description": "rest api for web application that monitoring the users with JSON files that used as logs.",
+  "main": "app.js",
   "scripts": {
-    "start": "nodemon ./bin/www",
+    "start": "nodemon app.js",
     "db:create": "node ./db/seeds.js"
   },
+  "author": "Sergway Khodyachikh",
+  "license": "MIT",
   "dependencies": {
+    "@hapi/joi": "^15.1.0",
     "axios": "^0.19.0",
-    "cookie-parser": "~1.4.3",
-    "cors": "^2.8.5",
-    "debug": "~2.6.9",
-    "express": "~4.16.0",
-    "express-async-errors": "^3.1.1",
-    "express-session": "^1.16.1",
-    "joi": "^14.3.1",
+    "express": "^4.17.1",
     "lodash": "^4.17.11",
-    "mongoose": "^5.5.3",
-    "morgan": "~1.9.0",
-    "nodemon": "^1.18.11",
+    "mongoose": "^5.6.1",
+    "nodemon": "^1.19.1",
     "rimraf": "^2.6.3"
   },
   "nodemonConfig": {

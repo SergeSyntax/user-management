@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const axios = require('axios');
 const _ = require('lodash');
 const { createJsonFile, createLogDirectory, removeLogDirectory, createObjectFileStructure } = require('../utils/fileManipulation');
-require('../configs/database');
+require('../config/database');
 
 const { User } = require('../models/user');
 const { Post } = require('../models/post');

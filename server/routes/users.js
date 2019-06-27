@@ -7,7 +7,6 @@ const {
 const { User, validateUser, validatePhone } = require('../models/user');
 const { Task } = require('../models/task');
 const { Post } = require('../models/post');
-const session = require('express-session');
 const express = require('express');
 const router = express.Router();
 
@@ -57,15 +56,6 @@ router.put('/:id', async (req, res) => {
 	const user = await User.findOne({ id: req.params.id });
 
 	if (!user) return res.status(404).send('the user with the given ID was not found.');
-
-	// if (req.session.editCount >= 5)
-	// 	res
-	// 		.status(404)
-	// 		.send(
-	// 			'You edit your user more then 5 times, we sorry to announce that but we ban your ability to edit user.'
-	// 		);
-	// if (req.session.editCount) req.session.editCount = req.session.editCount + 1;
-	// else req.session.editCount = 1;
 
 	const { name: oldName } = user;
 	user.name = req.body.name;
