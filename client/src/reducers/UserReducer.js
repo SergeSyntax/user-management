@@ -15,7 +15,7 @@ export default (state = {}, { type, payload }) => {
     case CREATE_USER:
     case EDIT_USER:
     case FETCH_USER:
-      return { ...state, [payload.id]: payload };
+      return { ...state, [payload.id]: { ...state[payload.id], ...payload } };
     case DELETE_USER:
       return { ..._.omit(state, payload) };
     default:

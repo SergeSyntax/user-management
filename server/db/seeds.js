@@ -32,7 +32,7 @@ async function createFileLogs(data) {
 			const message = await createJsonFile(`${user.id}-${user.name}`, obj);
 			console.log(message);
 		} catch (error) {
-			console.log(`Failed creating ${user.id}-${user.name}`, error);
+			console.error(`Failed creating ${user.id}-${user.name}`, error);
 		}
 	});
 }
@@ -76,7 +76,7 @@ function getData() {
 
 			res({ users, posts, tasks });
 		} catch (error) {
-			console.log('Failed downloading the data.');
+			console.error('Failed downloading the data.');
 			rej(error);
 		}
 	});
