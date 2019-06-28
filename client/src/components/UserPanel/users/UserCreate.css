@@ -8,8 +8,6 @@
   transition: all 1s;
 }
 
-
-
 .user-id h3:hover {
   font-size: 1.3rem;
   color: red;
@@ -21,6 +19,13 @@
 
 .other-data > div:last-child {
   padding-bottom: 0;
+}
+
+.other-data label {
+  background: #cbd4d6;
+  padding-right: 3px;
+  padding-left: 3px;
+  border-radius: 50%;
 }
 
 .phone-type {
