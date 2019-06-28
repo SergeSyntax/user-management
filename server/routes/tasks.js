@@ -51,6 +51,7 @@ router.post('/', async (req, res) => {
 
 router.delete('/:id', async (req, res) => {
 	const task = await Task.findOneAndDelete({ id: req.params.id });
+	
 	if (!task) return res.status(404).send('the user with the given ID was not found.');
 
 	const { id: userId, name: userName } = await User.findOne({

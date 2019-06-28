@@ -2,7 +2,7 @@ const fs = require('fs');
 const _ = require('lodash');
 const rimraf = require('rimraf');
 
-const LOGS_FOLDER = `${__dirname}/../logs`;
+const LOGS_FOLDER = `${__dirname}/../logs/user-activity/`;
 
 function createLogDirectory() {
 	return new Promise((res, rej) => {

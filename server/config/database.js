@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
+const winston = require('winston');
 
 mongoose
   .connect('mongodb://localhost/user-management', { useNewUrlParser: true, useCreateIndex: true })
-  .then(() => console.log('Connected to MongoDB'))
-  .catch(() => console.error('Failed connecting to MongoDB'));
+  .then(() => winston.info('Connected to MongoDB'))
