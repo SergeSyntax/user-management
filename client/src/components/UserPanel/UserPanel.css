@@ -61,6 +61,17 @@
   white-space: nowrap;
 }
 
+.form-active {
+  background: rgba(59, 177, 255, 0.2);
+}
+
+.form-active .other-data label {
+  background: #ADCDDF;
+  padding-right: 3px;
+  padding-left: 3px;
+  border-radius: 50%;
+}
+
 .input {
   width: 100%;
 }

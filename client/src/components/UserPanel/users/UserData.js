@@ -49,15 +49,11 @@ const UserData = ({
   return (
     <form
       style={{
-        background:
-          match && parseInt(match.params.id) === userId
-            ? 'rgba(59, 177, 255, 0.2)'
-            : 'none',
         border: `solid 3px ${
           uncompletedTasks ? 'rgba(255, 0, 0, 0.3)' : 'rgba(0, 255, 0, 0.3)'
         }`
       }}
-      className="form"
+      className={`form ${match && parseInt(match.params.id) === userId && 'form-active'}`}
       onSubmit={handleSubmit(submit)}
       autoComplete="off"
     >
