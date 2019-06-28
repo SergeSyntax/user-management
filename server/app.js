@@ -3,7 +3,7 @@ const express = require('express');
 const app = express();
 
 require('./config/logger')();
-require('./config/database');
+require('./config/database')();
 require('./routes/')(app);
 
 const port = process.env.PORT || 8000;

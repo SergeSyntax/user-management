@@ -4,7 +4,6 @@ import { TextField, Button } from '@material-ui/core';
 import { connect } from 'react-redux';
 import { editUser } from '../../../actions';
 import { Link } from 'react-router-dom';
-
 import _ from 'lodash';
 import PropTypes from 'prop-types';
 
@@ -53,7 +52,9 @@ const UserData = ({
           uncompletedTasks ? 'rgba(255, 0, 0, 0.3)' : 'rgba(0, 255, 0, 0.3)'
         }`
       }}
-      className={`form ${match && parseInt(match.params.id) === userId && 'form-active'}`}
+      className={`form ${match &&
+        parseInt(match.params.id) === userId &&
+        'form-active'}`}
       onSubmit={handleSubmit(submit)}
       autoComplete="off"
     >
