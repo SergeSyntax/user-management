@@ -1,0 +1,4 @@
+{ meta: 'test',
+  level: 'error',
+  message: undefined,
+  timestamp: '2019-06-28T00:49:46.277Z' }
