@@ -2,6 +2,7 @@ require('express-async-errors');
 const winston = require('winston');
 require('winston-mongodb');
 var path = require('path');
+const config = require('config');
 var appDir = path.dirname(require.main.filename);
 
 module.exports = function() {
@@ -29,7 +30,7 @@ module.exports = function() {
           align(),
           printf(info => {
             const { timestamp, level, message, ...args } = info;
-  
+
             const ts = timestamp.slice(0, 19).replace('T', ' ');
             return `${ts} [${level}]: ${message} ${
               Object.keys(args).length ? JSON.stringify(args, null, 2) : ''
@@ -39,16 +40,16 @@ module.exports = function() {
       })
     ]
   });
-  
+
   winston.add(logger);
   winston.add(
     new winston.transports.MongoDB({
-      db: 'mongodb://localhost/user-management',
+      db: config.get('database'),
       level: 'error',
       metaKey: 'meta'
     })
   );
-}
+};
 
 process.on('unhandledRejection', ex => {
   throw ex;
