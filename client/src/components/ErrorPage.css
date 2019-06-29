@@ -1,0 +1,51 @@
+.error-screen,
+.error-screen a {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+}
+
+.error-message {
+  height: 40%;
+  width: 60%;
+  margin-top: 10%;
+  background: white;
+  border-radius: 20px;
+  opacity: 0.3;
+  padding: 2rem;
+  text-align: center;
+}
+
+.error-message h1 {
+  font-size: 7rem;
+  font-weight: 100;
+  color: red;
+}
+
+.error-message p {
+  font-size: 2rem;
+  color: #2296f3;
+}
+
+@media screen and (max-width: 1400px) {
+  .error-message {
+    height: 45%;
+    width: 60%;  }
+}
+
+@media screen and (max-width: 900px) {
+  .error-message {
+    height: 65%;
+    width: 70%;  }
+}
+
+@media screen and (max-width: 600px) {
+  .error-message {
+    height: 100%;
+    width: 100%;
+    margin-top: 0;
+    border-radius: 0;
+  }
+  
+}

@@ -7,10 +7,12 @@ import Page from '../layout/Page';
 import './UserPanel.css';
 import ResponsiveNavBar from '../layout/ResponsiveNavBar';
 import Background from '../layout/Background';
+import UserDelete from './users/UserDelete';
 
 const UserPanel = () => {
   return (
     <Background className="full-screen">
+      <Route path="/users/:id/delete" component={UserDelete} />
       <ResponsiveNavBar />
       <Page id="1" className="page">
         <Route path="/users/:id" component={UserList} />

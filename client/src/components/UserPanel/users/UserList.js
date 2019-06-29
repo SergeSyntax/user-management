@@ -4,8 +4,10 @@ import UserData from './UserData';
 import { connect } from 'react-redux';
 import { fetchUsers } from '../../../actions';
 import UserListActions from './UserListActions';
+import Spinner from '../../layout/Spinner';
+import { Redirect } from 'react-router-dom';
 
-const UserList = ({ users, fetchUsers, tasks, match }) => {
+const UserList = ({ users, fetchUsers, tasks, match, loading, error }) => {
   const [search, setSearch] = useState('');
 
   useEffect(() => {
@@ -46,7 +48,10 @@ const UserList = ({ users, fetchUsers, tasks, match }) => {
       });
   };
 
-  return (
+  if (loading) return <Spinner />;
+  return !loading && error ? (
+    <Redirect to="/error" />
+  ) : (
     <Fragment>
       <UserListActions search={search} setSearch={setSearch} />
       <ul className="list">{renderUserList(users)}</ul>
@@ -58,12 +63,16 @@ UserList.propTypes = {
   users: PropTypes.array.isRequired,
   fetchUsers: PropTypes.func.isRequired,
   tasks: PropTypes.object.isRequired,
-  match: PropTypes.object.isRequired
+  match: PropTypes.object.isRequired,
+  loading: PropTypes.bool.isRequired,
+  error: PropTypes.bool.isRequired
 };
 
 const mapStateToProps = state => ({
-  users: Object.values(state.users),
-  tasks: state.tasks
+  error: state.users.error,
+  loading: state.users.loading,
+  users: Object.values(state.users.userList),
+  tasks: state.tasks.taskList
 });
 
 export default connect(

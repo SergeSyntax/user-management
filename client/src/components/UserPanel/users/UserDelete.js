@@ -68,7 +68,7 @@ UserDelete.propTypes = {
   match: PropTypes.object.isRequired
 };
 const mapStateToProps = (state, ownProps) => ({
-  user: state.users[ownProps.match.params.id]
+  user: state.users.userList[ownProps.match.params.id]
 });
 
 export default connect(
