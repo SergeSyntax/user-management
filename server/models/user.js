@@ -12,8 +12,6 @@ const User = mongoose.model(
       minlength: 1,
       maxlength: 50,
       trim: true,
-      get: name => _.startCase(_.toLower(name)),
-      set: name => _.startCase(_.toLower(name))
     },
     username: String,
     email: {

@@ -1,8 +1,13 @@
 const fs = require('fs');
 const _ = require('lodash');
 const rimraf = require('rimraf');
+const path = require('path')
 
-const LOGS_FOLDER = `${__dirname}/../logs/user-activity/`;
+const APP_DIR = path.dirname("App");
+const LOGS_FOLDER = `${APP_DIR}/logs/user-activity`;
+
+console.log(path.dirname("App"));
+
 
 function createLogDirectory() {
 	return new Promise((res, rej) => {
@@ -24,6 +29,7 @@ function removeLogDirectory() {
 
 function removeFile(fileName) {
 	return new Promise((res, rej) => {
+		console.log(`${LOGS_FOLDER}/${fileName}.json`);	
 		fs.unlink(`${LOGS_FOLDER}/${fileName}.json`, err => {
 			if (err) rej(err);
 			res(`removed ${fileName}`);
@@ -41,7 +47,7 @@ function createJsonFile(fileName, obj) {
 }
 
 function userInputToStartCase(newUser) {
-	newUser.name = _.startCase(_.toLower(newUser.name));
+	newUser.name = _.toLower(newUser.name);
 	newUser.email = _.toLower(newUser.email);
 	if (newUser.address) newUser.address.city = _.startCase(_.toLower(newUser.address.city));
 	else newUser.city = _.startCase(_.toLower(newUser.city));
@@ -268,6 +274,7 @@ function updatePost(data, postId, updatedPostProps) {
 }
 
 module.exports = {
+	APP_DIR,
 	createJsonFile,
 	removeFile,
 	createLogDirectory,

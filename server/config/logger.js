@@ -1,9 +1,10 @@
 require('express-async-errors');
 const winston = require('winston');
 require('winston-mongodb');
+const {APP_DIR} = require('../utils/fileManipulation')
 var path = require('path');
 const config = require('config');
-var appDir = path.dirname(require.main.filename);
+
 
 module.exports = function() {
   const {
@@ -17,7 +18,7 @@ module.exports = function() {
   const logger = winston.createLogger({
     transports: [
       new winston.transports.File({
-        filename: `${appDir}/logs/server-log.txt`,
+        filename: `${APP_DIR}/logs/server-log.txt`,
         format: combine(timestamp(), prettyPrint()),
         level: 'error'
       }),
