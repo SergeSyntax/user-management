@@ -7,4 +7,4 @@ require('./config/database');
 require('./routes/')(app);
 
 const port = process.env.PORT || 8000;
-app.listen(port, () => winston.info(`Listening on port ${port}...`));
+module.exports = app.listen(port, () => winston.info(`Listening on port ${port}...`));

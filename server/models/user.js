@@ -5,7 +5,7 @@ const _ = require('lodash');
 const User = mongoose.model(
   'User',
   new mongoose.Schema({
-    id: { type: Number, required: true, min: 1, unique: true },
+    id: { type: Number, required: true, min: 1, unique: true, default: 0 },
     name: {
       type: String,
       required: true,
@@ -73,12 +73,12 @@ function validateUser(user) {
     city: Joi.string()
       .required()
       .min(1)
-      .max(250)
+      .max(50)
   };
   return Joi.validate(user, schema);
-};
+}
 
-  function validatePhone(phone) {
+function validatePhone(phone) {
   const schema = {
     number: Joi.string()
       .required()
@@ -90,8 +90,7 @@ function validateUser(user) {
       .max(250)
   };
   return Joi.validate(phone, schema);
-};
-
+}
 
 module.exports = {
   User,

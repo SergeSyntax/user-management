@@ -30,8 +30,10 @@ router.post('/', async (req, res) => {
 	const { error } = validatePost(req.body);
 	if (error) return res.status(400).send(error.details[0].message);
 
-	let { id } = await Post.findOne({}).sort({ id: -1 });
-	id++;
+  let lastPost = await Post.findOne({}).sort({ id: -1 });
+  let id;
+  if (lastPost) id = ++lastPost.id;
+  else id = 1;
 
 	const user = await User.findOne({ id: req.body.userId });
 
