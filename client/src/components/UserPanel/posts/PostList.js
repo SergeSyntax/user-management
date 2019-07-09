@@ -15,8 +15,8 @@ const PostList = ({
   loading
 }) => {
   useEffect(() => {
-    fetchPosts(id);
-  }, [fetchPosts, id]);
+    fetchPosts();
+  }, [fetchPosts ]);
  
   return loading ? (
     <Spinner />

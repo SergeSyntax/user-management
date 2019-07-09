@@ -136,7 +136,7 @@ export const createTask = formValues => async dispatch => {
   }
 };
 
-export const fetchPosts = userId => async dispatch => {
+export const fetchPosts = () => async dispatch => {
   try {
     const { data: payload } = await server.get(`/posts`);
     dispatch({
