@@ -8,15 +8,20 @@
     "test": "jest --forceExit",
     "db:create": "node ./db/seeds.js"
   },
+  "engines": {
+    "node": "12.6.0"
+  },
   "author": "Sergway Khodyachikh",
   "license": "MIT",
   "dependencies": {
     "@hapi/joi": "^15.1.0",
     "axios": "^0.19.0",
+    "compression": "^1.7.4",
     "config": "^3.1.0",
     "cors": "^2.8.5",
     "express": "^4.17.1",
     "express-async-errors": "^3.1.1",
+    "helmet": "^3.18.0",
     "lodash": "^4.17.11",
     "mongoose": "^5.6.1",
     "morgan": "^1.9.1",

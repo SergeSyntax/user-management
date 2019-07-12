@@ -5,6 +5,9 @@ const app = express();
 require('./config/logger')();
 require('./config/database');
 require('./routes/')(app);
+require('./config/prod')(app);
 
 const port = process.env.PORT || 8000;
-module.exports = app.listen(port, () => winston.info(`Listening on port ${port}...`));
+module.exports = app.listen(port, () =>
+  winston.info(`Listening on port ${port}...`)
+);
