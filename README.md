@@ -1,6 +1,6 @@
 # User Management Full Stack Project
 
-## requirements:
+## Requirements:
 
 - MongoDB installed and configured.
 - Node & NVM installed.
