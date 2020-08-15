@@ -14,25 +14,19 @@ const UserList = ({ users, fetchUsers, tasks, match, loading, error }) => {
     fetchUsers();
   }, [tasks, fetchUsers]);
 
-  const renderUserList = users => {
+  const renderUserList = (users) => {
     return users
       .filter(
-        user =>
-          user.name
-            .toLowerCase()
-            .trim()
-            .includes(search.toLowerCase().trim()) ||
-          user.email
-            .toLowerCase()
-            .trim()
-            .includes(search.toLowerCase().trim()) ||
+        (user) =>
+          user.name.toLowerCase().trim().includes(search.toLowerCase().trim()) ||
+          user.email.toLowerCase().trim().includes(search.toLowerCase().trim()) ||
           user.id === parseInt(search)
       )
-      .map(user => {
+      .map((user) => {
         const initialValues = {
           name: user.name,
           email: user.email,
-          city: user.address.city
+          city: user.address.city,
         };
         return (
           <UserData
@@ -49,9 +43,7 @@ const UserList = ({ users, fetchUsers, tasks, match, loading, error }) => {
   };
 
   if (loading) return <Spinner />;
-  return !loading && error ? (
-    <Redirect to="/error" />
-  ) : (
+  return (
     <Fragment>
       <UserListActions search={search} setSearch={setSearch} />
       <ul className="list">{renderUserList(users)}</ul>
@@ -65,17 +57,14 @@ UserList.propTypes = {
   tasks: PropTypes.object.isRequired,
   match: PropTypes.object.isRequired,
   loading: PropTypes.bool.isRequired,
-  error: PropTypes.bool.isRequired
+  error: PropTypes.bool.isRequired,
 };
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
   error: state.users.error,
   loading: state.users.loading,
   users: Object.values(state.users.userList),
-  tasks: state.tasks.taskList
+  tasks: state.tasks.taskList,
 });
 
-export default connect(
-  mapStateToProps,
-  { fetchUsers }
-)(UserList);
+export default connect(mapStateToProps, { fetchUsers })(UserList);
