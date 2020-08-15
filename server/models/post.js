@@ -13,8 +13,8 @@ const Post = mongoose.model(
       minlength: 4,
       maxlength: 1255,
       trim: true,
-      get: title => _.toLower(title),
-      set: title => _.toLower(title)
+      get: (title) => _.toLower(title),
+      set: (title) => _.toLower(title),
     },
     body: {
       type: String,
@@ -22,27 +22,19 @@ const Post = mongoose.model(
       minlength: 4,
       maxlength: 3255,
       trim: true,
-      get: body => _.toLower(body),
-      set: body => _.toLower(body)
-    }
+      get: (body) => _.toLower(body),
+      set: (body) => _.toLower(body),
+    },
   })
 );
 
 function validatePost(post) {
-  const schema = {
-    userId: Joi.number()
-      .required()
-      .min(1),
-    title: Joi.string()
-      .required()
-      .min(4)
-      .max(1255),
-    body: Joi.string()
-      .required()
-      .min(4)
-      .max(3255)
-  };
-  return Joi.validate(post, schema);
+  const schema = Joi.object({
+    userId: Joi.number().required().min(1),
+    title: Joi.string().required().min(4).max(1255),
+    body: Joi.string().required().min(4).max(3255),
+  });
+  return schema.validate(post);
 }
 
 module.exports = { Post, validatePost };

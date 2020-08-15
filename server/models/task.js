@@ -13,39 +13,31 @@ const Task = mongoose.model(
       minlength: 4,
       maxlength: 255,
       trim: true,
-      get: email => _.toLower(email),
-      set: email => _.toLower(email)
+      get: (email) => _.toLower(email),
+      set: (email) => _.toLower(email),
     },
-    completed: { type: Boolean, default: false }
+    completed: { type: Boolean, default: false },
   })
 );
 
 function validateTask(task) {
-  const schema = {
-    userId: Joi.number()
-      .required()
-      .min(1),
-    title: Joi.string()
-      .required()
-      .min(4)
-      .max(255)
-  };
-  return Joi.validate(task, schema);
+  const schema = Joi.object({
+    userId: Joi.number().required().min(1),
+    title: Joi.string().required().min(4).max(255),
+  });
+  return schema.validate(task);
 }
 
 function validateTaskUpdate(task) {
-  const schema = {
-    title: Joi.string()
-      .required()
-      .min(4)
-      .max(255),
-    completed: Joi.boolean().required()
-  };
-  return Joi.validate(task, schema);
+  const schema = Joi.object({
+    title: Joi.string().required().min(4).max(255),
+    completed: Joi.boolean().required(),
+  });
+  return schema.validate(task);
 }
 
 module.exports = {
   Task,
   validateTask,
-  validateTaskUpdate
+  validateTaskUpdate,
 };

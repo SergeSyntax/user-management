@@ -1,26 +1,17 @@
 require('express-async-errors');
 const winston = require('winston');
-require('winston-mongodb');
-const {APP_DIR} = require('../utils/fileManipulation')
+const { APP_DIR } = require('../utils/fileManipulation');
 var path = require('path');
 const config = require('config');
 
-
-module.exports = function() {
-  const {
-    combine,
-    timestamp,
-    prettyPrint,
-    colorize,
-    align,
-    printf
-  } = winston.format;
+module.exports = function () {
+  const { combine, timestamp, prettyPrint, colorize, align, printf } = winston.format;
   const logger = winston.createLogger({
     transports: [
       new winston.transports.File({
         filename: `${APP_DIR}/logs/server-log.txt`,
         format: combine(timestamp(), prettyPrint()),
-        level: 'error'
+        level: 'error',
       }),
       new winston.transports.Console({
         handleExceptions: true,
@@ -29,7 +20,7 @@ module.exports = function() {
           colorize(),
           timestamp(),
           align(),
-          printf(info => {
+          printf((info) => {
             const { timestamp, level, message, ...args } = info;
 
             const ts = timestamp.slice(0, 19).replace('T', ' ');
@@ -37,21 +28,14 @@ module.exports = function() {
               Object.keys(args).length ? JSON.stringify(args, null, 2) : ''
             }`;
           })
-        )
-      })
-    ]
+        ),
+      }),
+    ],
   });
 
   winston.add(logger);
-  winston.add(
-    new winston.transports.MongoDB({
-      db: config.get('database'),
-      level: 'error',
-      metaKey: 'meta'
-    })
-  );
 };
 
-process.on('unhandledRejection', ex => {
+process.on('unhandledRejection', (ex) => {
   throw ex;
 });
